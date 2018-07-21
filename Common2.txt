@@ -1,0 +1,5 @@
+*** Keywords ***
+
+My Keyword2
+    [Documentation]    this is my keyword
+    Log    Hello World2!
