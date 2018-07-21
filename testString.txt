@@ -1,0 +1,40 @@
+*** Settings ***
+Library       String
+
+    
+*** Test Cases ***
+My Test
+    [Documentation]    Example test  
+    ${str1}=     Convert To Lowercase    TEST
+    Log    ${str1}
+    ${str2}=     Convert To Uppercase    test
+    Log    ${str2}
+
+
+
+Second Test
+    [Documentation]    Another Testcase
+    ${ret1}=    Generate Random String
+    Log    ${ret1}
+    ${ret2}=    Generate Random String    12    [LOWER]
+    Log    ${ret2}
+    ${ret3}=    Generate Random String    8     01#@2abc$
+    Log    ${ret3}
+    ${ret4}=    Generate Random String    4     [NUMBERS]abcdef
+    Log    ${ret4}
+ 
+
+Third Test
+    [Documentation]    Another Testcase
+    ${stripped}=    Strip String    ${SPACE}Hello${SPACE}
+    Should Be Equal    ${stripped}    Hello
+
+
+    ${stripped}=    Strip String    ${SPACE}Hello${SPACE}    mode=left
+    Should Be Equal    ${stripped}    Hello${SPACE}
+
+
+    ${stripped}=    Strip String    abcHelloabc    characters=abc    mode=right
+    Should Be Equal    ${stripped}    Hello
+
+

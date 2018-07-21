@@ -1,0 +1,50 @@
+*** Settings ***
+Library	      Collections
+Library       MyProgram
+
+
+
+*** Variables ***
+${D1}=    {k1:v1, k2:v2}
+${T1}=    (1,2,3,4)
+
+    
+*** Test Cases ***
+My Test
+    [Documentation]    Example test  
+
+    Example Keyword 
+    Log    ${D1}
+    ${L1}=     Create List    k    b    c
+    ${L2}=     Create List    d    e    f
+    Run Keyword And Continue On Failure    Append To List    ${L1}    d
+    Log List   ${L1}
+    ${L3}=    Combine Lists    ${L1}    ${L2}
+    Log    ${L3}
+    ${L4}=     Copy List    ${L3}
+    Log    ${L4}
+    Sort List    ${L1}
+    Log List    ${L1}
+
+Second Test
+    [Documentation]    Another Testcase
+    ${Output}=    Convert To List    ${D1}
+    Log    ${Output}
+    Log    ${T1}
+    ${Output1}=    Convert To List    ${T1}
+    Log    ${Output1}
+   
+
+Third Test
+    [Documentation]    Another Testcase
+    ${Output}=    Dictionary Should Contain Key    ${D1}    k1
+    Log    ${Output}
+    ${MyDict}=    Create Dictionary
+    Set To Dictionary    ${MyDict}    A1    Value1
+    Set To Dictionary    ${MyDict}    A2    Value2
+    Log Dictionary    ${MyDict}
+    Dictionary Should Contain Key    ${MyDict}    A1
+    ${keys}=    Get Dictionary Keys    ${MyDict}
+    Log    ${keys}
+
+

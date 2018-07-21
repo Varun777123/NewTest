@@ -1,0 +1,28 @@
+*** Settings ***
+Library       OperatingSystem
+
+*** Variables ***
+${MESSAGE}    Hello, world!
+${var}    4
+
+*** Test Cases ***
+My Test
+    [Documentation]    Example test
+    Log    ${MESSAGE}
+    My Keyword    /tmp
+
+Another Test
+    Repeat Keyword    ${var}    Log    ${MESSAGE}
+    Repeat Keyword    5 times    Log    ${MESSAGE}
+    Sleep    10
+
+Third Test
+    No Operation
+
+
+
+*** Keywords ***
+My Keyword
+    [Documentation]    User defined keyword
+    [Arguments]    ${path}
+    Directory Should Exist    ${path}

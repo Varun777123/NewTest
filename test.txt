@@ -1,0 +1,31 @@
+*** Settings ***
+Library       OperatingSystem
+Library       MyProgram
+
+*** Variables ***
+${MESSAGE}    Hello, world!
+@{VALUES}    1    2    3    myname    !@#
+
+*** Test Cases ***
+My Test
+    [Documentation]    Example test
+    Log    ${MESSAGE}
+    Example Keyword
+    My Keyword    /tmp
+    :FOR    ${var}    IN    @{VALUES}
+    \    Log    ${var}                         
+    Log    @{VALUES}[2]
+
+Another Test
+    Should Not Be Equal    ${MESSAGE}    world!
+
+Third Test
+    No Operation
+
+
+
+*** Keywords ***
+My Keyword
+    [Documentation]    User defined keyword
+    [Arguments]    ${path}
+    Directory Should Exist    ${path}
