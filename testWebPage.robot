@@ -6,9 +6,6 @@ Variables    Elements.py
 Test Setup    Open test browser
 Test Teardown    Close test browser
 
-*** Variables ***
-${Title_Text} =
-
 *** Test Cases ***
 
 Page Test
