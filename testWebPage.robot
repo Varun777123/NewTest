@@ -3,8 +3,8 @@
 Library  Selenium2Library
 Variables    Elements.py
 
-#Test Setup    Open test browser
-#Test Teardown    Close test browser
+Test Setup    Open test browser
+Test Teardown    Close test browser
 
 *** Variables ***
 ${Title_Text} =
